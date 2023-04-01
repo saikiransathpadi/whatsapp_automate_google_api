@@ -1,0 +1,4 @@
+pandas==1.5.3
+pywhatkit==5.4
+gspread==5.7.2
+oauth2client==4.1.3
