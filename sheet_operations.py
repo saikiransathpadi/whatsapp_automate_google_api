@@ -5,7 +5,7 @@ from gspread.cell import Cell
 from oauth2client.service_account import ServiceAccountCredentials
 
 from configurations import (
-    REG_SHEET_URL, REG_WORKSHEET_NAME, SheetColumns, WHATSAPP_WAIT_TIME
+    REG_SHEET_URL, REG_WORKSHEET_NAME, SheetColumns, WHATSAPP_WAIT_TIME, TEST
 )
 from utils.messages import coguide_message
 from utils.helpers import get_today_date_formatted, get_name_with_prefix
@@ -88,6 +88,10 @@ def send_wa_msg_and_update_sheet(worksheet: Worksheet):
     print(f"Started sending {headers[get_col_index(SheetColumns.MSG_COL)]}")
     for index, item in enumerate(data):
         if is_eligible_for_msg(item):
+            if TEST != 1:
+                print("Script is in test mode")
+                print("Starting candidate of Day 1", get_name(item), get_mobile(item))
+                return
             print(f"Sending Message to {item[get_mobile_index()]}")
             sendmsg_and_update_list(item, index, cells_list)
     if len(cells_list):

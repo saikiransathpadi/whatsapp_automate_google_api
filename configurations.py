@@ -11,3 +11,5 @@ class SheetColumns:
     MSG_COL = "O"
     MSG_STATUS_COL = "P"
     DATE_COL = "Q"
+
+TEST = 0
