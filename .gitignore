@@ -30,5 +30,5 @@ celerybeat-schedule
 
 *.csv
 
-credentials.json
+
 PyWhatKit_DB.txt
